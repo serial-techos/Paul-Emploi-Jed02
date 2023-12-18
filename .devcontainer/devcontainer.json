@@ -1,0 +1,26 @@
+{
+    "name": "PaulEmploiJed",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+				"ms-python.python",
+				"GitHub.copilot"
+			]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/devcontainer/.ssh,type=bind,consistency=cached",
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    
+
+}
