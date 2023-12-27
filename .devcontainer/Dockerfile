@@ -1,6 +1,7 @@
 # Start with Debian
 FROM debian:bullseye-slim
 
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     wget \
@@ -24,7 +25,7 @@ RUN curl -fsSLk https://download.docker.com/linux/debian/gpg | apt-key add - \
 RUN apt-get install -y python3.9
 
 # Install Pandas
-RUN pip install pandas
+RUN apt-get install -y python3-pip && pip3 install pandas
 RUN apt-get update && apt-get install -y git
 
 # Install Spark
