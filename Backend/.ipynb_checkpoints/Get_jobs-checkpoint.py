@@ -1,14 +1,16 @@
 import requests
 import json
 
-def get_jobs(domaine : str, access_token : str):
+domaine = 'M18'
+keyword = 'data'
+def get_jobs(params : dict, access_token : str):
     url = 'https://api.pole-emploi.io/partenaire/offresdemploi/v2/offres/search'
     headers = {
         'accept': 'application/json',
         'Authorization': f'Bearer {access_token}'
     }
     params = {
-        'domaine': domaine
+        'domaine':domaine ,'motsCles': keyword ,'pays':'France'
     }
 
     response = requests.get(url, headers=headers, params=params)
